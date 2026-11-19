@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b172a">
+<meta name="description" content="蘭陽盃數學金頭腦進階備考互動網站：8大單元、16題歷屆詳解、48題分級練習、初試與複試模擬考。">
+<title>蘭陽盃數學金頭腦｜進階備考互動教室</title>
+<style>
+:root{--navy:#0b192e;--navy2:#12263f;--ink:#172f42;--muted:#718297;--teal:#087a7e;--teal2:#0da7a2;--gold:#dba75b;--bg:#f5f7f9;--white:#fff;--line:#e0e8ed;--pale:#e9f6f4;--bad:#ad4a44;--good:#147b68;--radius:16px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--ink);line-height:1.75;font-size:15px}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+button:disabled{cursor:not-allowed;opacity:.55}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #5ec9c5;outline-offset:3px}
+a{color:var(--teal);text-decoration:none}
+a:hover{text-decoration:underline}
+.app{display:flex;min-height:100vh}
+.sidebar{position:sticky;top:0;flex:0 0 272px;height:100vh;overflow-y:auto;background:var(--navy);color:#d6e5eb;padding:23px 17px 21px;scrollbar-width:thin}
+.brand{display:flex;align-items:center;gap:12px;padding:4px 8px 24px;border-bottom:1px solid #ffffff20;margin-bottom:21px}
+.brand-symbol{height:45px;width:45px;display:grid;place-items:center;background:linear-gradient(135deg,#1aa6a6,#12666d);border:1px solid #63c6c3;color:white;border-radius:13px;font-size:27px;font-family:Georgia,serif;box-shadow:0 8px 20px #0003}
+.brand b{display:block;font-size:16px;color:white;letter-spacing:.3px}
+.brand small{display:block;font-size:11px;color:#8fb1bd;letter-spacing:1.3px}
+.nav-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#718d9b;padding:14px 15px 7px;font-weight:800}
+.nav-link{display:flex;align-items:center;gap:12px;min-height:42px;width:100%;border:0;background:none;color:#b5c8d4;text-align:left;border-radius:10px;padding:9px 13px;margin:2px 0;transition:background .15s,color .15s;line-height:1.35;font-size:13px}
+.nav-link:hover{background:#ffffff10;color:#fff}
+.nav-link.active{background:linear-gradient(90deg,#166a72,#134a59);color:#fff;font-weight:750;box-shadow:inset 3px 0 #e7b66b}
+.nav-link .nav-icon{font-size:15px;width:21px;text-align:center;color:#69bdbe}
+.nav-link small{display:block;color:#80a4b2;font-size:10px;margin-top:3px}
+.side-foot{margin:30px 11px 10px;padding:15px 13px;border:1px solid #ffffff1f;border-radius:12px;background:#ffffff07}
+.side-foot b{font-size:12px;color:#bcd6dc}
+.side-foot p{font-size:11px;color:#8baab7;margin:6px 0 0;line-height:1.65}
+.workspace{min-width:0;flex:1}
+.topbar{height:77px;position:sticky;top:0;z-index:20;background:#fffc;border-bottom:1px solid var(--line);backdrop-filter:blur(15px);display:flex;align-items:center;justify-content:space-between;padding:12px clamp(18px,4vw,56px);gap:15px}
+.topbar-left{display:flex;align-items:center;min-width:0;gap:13px}
+.breadcrumb{font-size:12px;color:#768b9b;letter-spacing:.7px}
+.breadcrumb strong{display:block;font-size:17px;color:var(--navy);letter-spacing:0}
+.menu-toggle{display:none;border:1px solid var(--line);background:white;padding:6px 10px;border-radius:10px;font-size:22px}
+.topbar-actions{display:flex;align-items:center;gap:9px}
+.searchbox{position:relative}
+.searchbox input{width:clamp(145px,18vw,265px);max-width:100%;height:40px;border:1px solid var(--line);background:#f9fbfc;border-radius:10px;padding:7px 13px 7px 33px;color:var(--ink);font-size:13px}
+.searchbox:before{content:"⌕";position:absolute;left:11px;top:5px;font-size:22px;color:#86a0ad}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;background:#fff;color:var(--ink);border:1px solid #d7e2e7;border-radius:10px;padding:10px 16px;font-weight:700;line-height:1.35;font-size:13px;text-decoration:none;transition:transform .15s,background .15s}
+.btn:hover{background:#edf5f5;text-decoration:none;transform:translateY(-1px)}
+.btn-primary{border-color:#087a7e;background:var(--teal);color:#fff}
+.btn-primary:hover{background:#096e74;color:#fff}
+.btn-dark{background:var(--navy);border-color:var(--navy);color:white}
+.btn-dark:hover{background:#213e59;color:white}
+.btn-soft{background:#ebf7f4;color:#116d66;border-color:#cce7e3}
+.btn-warn{background:#fff5e9;border-color:#f2d1a5;color:#98612c}
+.btn-sm{padding:7px 11px;font-size:12px;border-radius:8px}
+.main{width:min(1220px,100%);margin:0 auto;padding:32px clamp(18px,4vw,55px) 72px}
+.page-tag{font-size:11px;letter-spacing:2.3px;text-transform:uppercase;color:var(--teal);font-weight:850}
+.page-title{margin:5px 0 8px;font-size:clamp(27px,3.3vw,40px);line-height:1.28;letter-spacing:-.7px;color:var(--navy)}
+.lead{font-size:15px;line-height:1.9;color:#63798b;margin:9px 0 25px;max-width:900px}
+.hero{background:linear-gradient(123deg,#10243e 0%,#0a3a48 66%,#0a7777 140%);color:#fff;border-radius:22px;padding:clamp(28px,5vw,55px);position:relative;overflow:hidden;isolation:isolate}
+.hero:after{content:"∑";font-family:Georgia,serif;position:absolute;right:35px;top:-110px;color:#fff1;font-size:360px;line-height:1;z-index:-1}
+.hero small{letter-spacing:3px;color:#96d9da;font-weight:750}
+.hero h1{max-width:630px;font-size:clamp(32px,4vw,53px);line-height:1.25;letter-spacing:-1px;margin:17px 0 13px}
+.hero h1 span{color:#edc687}
+.hero p{max-width:610px;color:#bad8dc;font-size:15px;line-height:2}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
+.hero .btn-primary{background:#e7b975;border-color:#e7b975;color:#12263b}
+.hero .btn-primary:hover{background:#f0ca8d}
+.hero .btn-outline{background:#ffffff12;border:1px solid #ffffff50;color:#fff}
+.hero .btn-outline:hover{background:#ffffff25}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:21px 0 30px}
+.metric{background:#fff;border:1px solid var(--line);padding:18px 20px;border-radius:14px;box-shadow:0 4px 15px #152e4205}
+.metric b{display:block;font-size:26px;color:var(--navy);font-weight:850;line-height:1.35}
+.metric span{font-size:12px;color:var(--muted)}
+.section-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:34px 0 16px}
+.section-heading h2{font-size:21px;margin:0;color:var(--navy)}
+.section-heading p{margin:3px 0 0;color:var(--muted);font-size:13px}
+.chapter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.unit-card{background:white;border:1px solid var(--line);padding:22px;border-radius:15px;transition:border-color .15s,transform .15s,box-shadow .15s}
+.unit-card:hover{border-color:#94c8c9;transform:translateY(-2px);box-shadow:0 11px 23px #10294410}
+.unit-head{display:flex;gap:14px;align-items:flex-start}
+.unit-index{background:#e4f3f1;color:#147778;display:grid;place-items:center;min-width:47px;height:47px;border-radius:12px;font-size:16px;font-weight:850}
+.unit-card h3{font-size:16px;color:var(--navy);line-height:1.4;margin:0 0 5px}
+.unit-card p{color:#718193;font-size:12.5px;line-height:1.8;margin:0 0 12px}
+.unit-meta{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:16px 0}
+.pill{font-size:11px;font-weight:750;background:#eff3f6;color:#627787;padding:4px 9px;border-radius:99px;white-space:nowrap}
+.pill.teal{background:#e8f6f2;color:#0a7e6b}
+.pill.gold{background:#fff2dd;color:#975d21}
+.progress-track{height:7px;border-radius:30px;background:#e9eff1;overflow:hidden;margin-top:12px}
+.progress-fill{height:100%;width:0;border-radius:30px;background:linear-gradient(90deg,#18a2a5,#0f7779);transition:width .25s}
+.unit-bottom{display:flex;justify-content:space-between;align-items:center;color:#8295a3;font-size:12px;margin-top:12px}
+.note-panel{background:#ecf5f6;border:1px solid #d2e9ea;border-radius:14px;padding:20px 23px;margin-top:20px;color:#31556a}
+.note-panel h3{font-size:15px;margin:0 0 6px;color:#105f70}
+.note-panel p{font-size:13px;margin:0;line-height:1.9}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;margin:15px 0;box-shadow:0 4px 12px #172f4204}
+.card h2{font-size:20px;line-height:1.4;color:var(--navy);margin:0 0 10px}
+.card h3{font-size:16px;color:#193f53;margin:0 0 10px}
+.card p{margin:8px 0;line-height:1.85}
+.card ul,.card ol{padding-left:22px}
+.card li{margin:6px 0}
+.signal-list{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
+.signal-item{padding:13px 14px;background:#eef7f6;border-left:3px solid var(--teal2);border-radius:9px;font-size:13px;color:#245665;line-height:1.7}
+.lesson-list{display:grid;gap:11px}
+.lesson-line{display:flex;gap:15px;padding:16px;background:#f8fafb;border:1px solid #e6edf0;border-radius:10px}
+.lesson-num{font-size:12px;font-weight:850;color:#138a8a}
+.lesson-line p{margin:0;font-size:14px}
+.examples-grid{display:grid;grid-template-columns:1fr;gap:15px}
+.example-card{padding:23px;background:#fff;border:1px solid var(--line);border-radius:15px}
+.example-card h3{margin:0 0 12px;font-size:17px;color:#164858}
+.question-text{font-weight:650;color:#213d4c;font-size:15px;line-height:1.95}
+.steps{counter-reset:s;display:grid;gap:8px;margin:16px 0 8px;padding:0;list-style:none}
+.steps li{position:relative;padding:12px 15px 12px 43px;background:#f5f8fa;border-radius:9px;font-size:14px;line-height:1.85}
+.steps li:before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;top:12px;left:14px;color:#169093;font-size:12px;font-weight:850}
+.conclusion{border-top:1px solid var(--line);margin-top:13px;padding-top:12px;font-weight:850;color:#0d7373}
+.alert{background:#fff7e9;border-left:3px solid #e0a649;padding:12px 16px;border-radius:8px;color:#8a5a28;font-size:13px;margin-top:12px}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:16px 0}
+.filter-controls{display:flex;gap:7px;flex-wrap:wrap}
+.chip{background:#fff;border:1px solid #dce6e9;border-radius:99px;padding:7px 14px;font-size:12px;color:#5f7486;font-weight:750}
+.chip.active{background:#11445a;border-color:#11445a;color:white}
+.inline-search{height:39px;width:min(245px,100%);border-radius:10px;border:1px solid var(--line);padding:0 11px}
+.practice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.practice-card{background:white;border:1px solid var(--line);border-radius:14px;padding:19px;display:flex;flex-direction:column;gap:10px}
+.practice-card.marked-good{border-color:#9ed3c5}
+.practice-card.marked-bad{border-color:#e8c1ac}
+.practice-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.practice-id{display:flex;align-items:center;gap:8px;font-weight:850;color:#124a5a;font-size:17px}
+.practice-card .question-text{font-size:13.5px;flex:1;font-weight:550}
+.practice-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.practice-answer{padding:12px 13px;border:1px dashed #9fcfca;background:#eff9f6;border-radius:9px;color:#2b5d63;font-size:13px}
+.practice-answer p{margin:4px 0}
+.status-tag{font-size:11px;color:#669096;font-weight:700}
+.status-tag.good{color:var(--good)}
+.status-tag.bad{color:var(--bad)}
+.empty{padding:35px;text-align:center;color:#8495a0;background:white;border:1px dashed var(--line);border-radius:13px}
+.exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 16px}
+.exam-info{color:#5c7184;font-size:13px}
+.timer{display:inline-flex;gap:11px;align-items:center;background:#12283f;color:#d2e5eb;padding:10px 14px;border-radius:11px}
+.timer strong{font-size:20px;letter-spacing:1.5px;color:white;font-variant-numeric:tabular-nums}
+.timer.urgent{background:#8b433d}
+.question-item{background:white;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:11px 0}
+.question-item.review-wrong{border-color:#eec5c2;background:#fffbfa}
+.question-item.review-correct{border-color:#b7dbd0}
+.question-index{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#78909c;font-weight:750;margin-bottom:7px}
+.question-item h3{font-size:15px;font-weight:700;line-height:1.9;margin:0 0 14px;color:#22394e}
+.opt-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:46px;text-align:left;padding:10px 12px;border:1px solid #dfe8ec;border-radius:10px;background:#f9fbfc;color:#334958;font-size:13px;line-height:1.65}
+.opt .letter{flex:0 0 25px;height:25px;border:1px solid #d3e3e7;background:white;border-radius:7px;display:grid;place-items:center;font-size:12px;font-weight:850}
+.opt:hover{border-color:#98caca;background:#f1f9f8}
+.opt.selected{border-color:#0c8c8a;background:#edf8f6;color:#0d5e62;font-weight:750}
+.opt.selected .letter{background:#0d8584;color:white;border-color:#0d8584}
+.opt.correct{border-color:#4da98e;background:#e9f6f0}
+.opt.wrong{border-color:#c86a5d;background:#fff0ed}
+.explanation{margin-top:12px;padding:13px 15px;border-radius:10px;background:#f0f6f6;font-size:13px;color:#35636d}
+.exam-finish{position:sticky;bottom:14px;z-index:11;background:#fdfefef2;backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:13px;padding:12px 17px;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 8px 28px #102b4614}
+.exam-score{text-align:center;padding:30px;border-radius:15px;background:linear-gradient(125deg,#102d44,#105c60);color:white;margin:18px 0}
+.exam-score b{font-size:49px;line-height:1.2;display:block}
+.exam-score span{font-size:13px;color:#a7d9da}
+.answer-input{display:block;width:100%;min-height:69px;background:#fafcfd;border:1px solid #dce7eb;border-radius:10px;padding:12px;font-size:14px;resize:vertical;line-height:1.7}
+.self-grade{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.table-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:white}
+th{font-size:12px;color:#3b6670;background:#edf5f5;text-align:left;padding:11px 15px;white-space:nowrap}
+td{padding:12px 15px;border-bottom:1px solid #e6ebef;font-size:13px;vertical-align:top}
+tr:last-child td{border-bottom:0}
+.timeline-list{display:grid;gap:12px}
+.week-card{display:flex;gap:15px;align-items:flex-start;border:1px solid var(--line);border-radius:13px;background:white;padding:17px}
+.week-card.done{background:#f0f9f6;border-color:#b7dfd5}
+.week-label{min-width:75px;font-size:12px;color:#118279;font-weight:850;background:#e8f6f2;padding:9px;border-radius:10px;text-align:center}
+.week-body{flex:1}
+.week-body b{font-size:15px;color:#153e50}
+.week-body p{font-size:13px;color:#667b8a;margin:5px 0}
+.week-check{display:flex;align-items:center;gap:7px;color:#376877;font-size:12px;white-space:nowrap}
+.week-check input{width:19px;height:19px;accent-color:#0b8280}
+.route{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:15px;border:1px solid var(--line);border-radius:13px;background:white}
+.route span{background:#e9f5f3;padding:8px 10px;border-radius:9px;font-size:12px;font-weight:750;color:#23616a}
+.route i{font-size:18px;color:#9ab3ba;font-style:normal}
+.quick-actions{display:flex;gap:10px;flex-wrap:wrap}
+.site-footer{border-top:1px solid var(--line);padding:23px 0;color:#8395a1;font-size:12px;margin-top:45px}
+.mobile-backdrop{display:none}
+.highlight{background:#ffe4ad;border-radius:3px}
+@media(max-width:1080px){.sidebar{flex-basis:235px}.main{padding:27px 27px 70px}.hero:after{right:-100px}.metrics{gap:9px}.metric{padding:15px}.practice-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.sidebar{position:fixed;left:0;top:0;height:100dvh;width:278px;z-index:40;transform:translateX(-103%);transition:transform .22s}.sidebar.open{transform:translateX(0)}.mobile-backdrop.show{display:block;position:fixed;inset:0;background:#0c1c2cb8;z-index:39}.menu-toggle{display:inline-flex}.topbar{height:68px;padding:9px 17px}.topbar-actions .btn{display:none}.searchbox input{width:155px}.breadcrumb{display:none}.breadcrumb strong{font-size:15px}.main{padding:20px 17px 60px}.hero{border-radius:16px;padding:25px}.hero h1{font-size:32px}.hero:after{right:-60px;top:-30px;font-size:250px}.metrics{grid-template-columns:repeat(2,1fr)}.chapter-grid{grid-template-columns:1fr}.signal-list{grid-template-columns:1fr}.card{padding:19px}.opt-grid{grid-template-columns:1fr}.exam-finish{bottom:0;margin:0 -9px}.week-card{flex-wrap:wrap}.week-check{margin-left:auto}}
+@media(max-width:400px){.topbar{padding:7px 10px}.searchbox input{width:120px}.hero h1{font-size:28px}.metrics{gap:7px}.metric b{font-size:23px}.page-title{font-size:25px}}
+@media print{.sidebar,.topbar,.exam-finish,.btn,.toolbar,.quick-actions,.site-footer,.mobile-backdrop,.week-check{display:none!important}.workspace{width:100%}.main{width:100%;padding:0}.app{display:block}.card,.practice-card,.question-item,.example-card{break-inside:avoid;box-shadow:none}.hero{background:#173d4b!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.page-title{font-size:24pt}.chapter-grid,.practice-grid{grid-template-columns:1fr 1fr}.practice-answer{display:block}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar" aria-label="網站導覽">
+  <div class="brand"><div class="brand-symbol">∑</div><div><b>蘭陽盃數學金頭腦</b><small>ADVANCED MATH LAB</small></div></div>
+  <div class="nav-label">學習中心</div>
+  <nav id="navigation"></nav>
+  <div class="side-foot"><b>離線也能使用</b><p>本網頁不需安裝軟體或連網。題目作答與學習進度儲存在這台裝置的瀏覽器中。</p></div>
+</aside>
+<div class="mobile-backdrop" id="mobileBackdrop" aria-hidden="true"></div>
+<div class="workspace">
+  <header class="topbar">
+    <div class="topbar-left"><button class="menu-toggle" aria-label="開啟導覽選單" data-action="menu">☰</button><div class="breadcrumb">LAN YANG CUP · MATH LAB<strong id="pageCrumb">備考總覽</strong></div></div>
+    <div class="topbar-actions">
+      <label class="searchbox"><input type="search" id="globalSearch" placeholder="搜尋題目、考點…" aria-label="搜尋題目與考點"></label>
+      <button class="btn btn-sm" data-action="print">⎙ 列印</button>
+    </div>
+  </header>
+  <main class="main" id="main" tabindex="-1"></main>
+</div>
+</div>
+<script type="application/json" id="curriculum">{"chapters":[{"title":"01｜初試快算與代數結構","desc":"看見公因式、等量變換、連續比例時，先化簡結構，不急著展開。","signal":["重複出現同一個括號 → 提公因式","每次倒出「剩餘量」的一部分 → 剩餘比連乘","頭數、腳數、總價 → 先列總量與差額"],"theories":["01. 提公因式：AB−AC＝A(B−C)。一題有兩個長乘積，應先確認能不能抽出共同括號。","02. 連續倒出 1/2、1/3、1/4、… 時，保留比例依序為 1/2、2/3、3/4、…，乘積會望遠鏡消去。","03. 二腳與四腳動物：若共 N 隻、共 L 隻腳，四腳動物 r 滿足 2N＋2r＝L。"],"examples":[{"title":"第16屆 A 組初試第1題｜連續倒水","question":"先倒出原量的 1/2，再倒出剩餘量的 1/3、1/4、……；最少倒幾次剩下原量的 1/9？","steps":["01 倒第 k 次後，留下的比例為 (1/2)(2/3)(3/4)⋯(k/(k＋1))。","02 相鄰分子分母抵消，剩餘比為 1/(k＋1)。","03 令 1/(k＋1)＝1/9，得 k＝8。"],"answer":"結論｜8 次","warning":"警戒：「倒出 1/3」是倒出當時剩餘量的 1/3，不是原量的 1/3。"},{"title":"第17屆 A 組初試第1題｜提公因式","question":"A＝(5x−7)(3x−5)−(9x−13)(5x−7)，求 A 的因式結構。","steps":["01 兩項都有 (5x−7)，先提取：A＝(5x−7)[(3x−5)−(9x−13)]。","02 括號化簡為 −6x＋8＝−2(3x−4)。","03 因此 A＝−2(5x−7)(3x−4)。"],"answer":"結論｜−2(5x−7)(3x−4)","warning":"警戒：負號要分配到第二個括號的每一項。"}],"practice":[{"id":"A1","difficulty":"基礎","question":"連續倒出剩餘水量的 1/2、1/3、1/4、……，要倒幾次才能剩原量的 1/12？","answer":"11 次","why":"倒 k 次後留下 1/(k＋1)，令 k＋1＝12。"},{"id":"A2","difficulty":"基礎","question":"將 (7x−3)(5x＋1)−(7x−3)(2x−5) 完全因式分解。","answer":"3(7x−3)(x＋2)","why":"提 (7x−3)，括號內為 3x＋6。"},{"id":"A3","difficulty":"中階","question":"某農場只有雞、兔共 40 隻，總腳數 110。兔子有幾隻？","answer":"15 隻","why":"若全是雞有 80 腳，多出的 30 腳每隻兔多 2 腳。"},{"id":"A4","difficulty":"中階","question":"一個正整數是 9 的倍數，反覆將各位數字相加直到剩一位數，結果為何？","answer":"9","why":"數字和與原數模 9 同餘，正的 9 倍數數根為 9。"},{"id":"A5","difficulty":"進階","question":"16 公升純酒精，兩次各倒出 x 公升並加水補滿，最後濃度變成 1/16，求 x。","answer":"12 公升","why":"(1−x/16)²＝1/16，剩餘比例非負，故 1−x/16＝1/4。"},{"id":"A6","difficulty":"進階","question":"求 2¹⁰−1 的相異質因數個數。","answer":"3 個","why":"2¹⁰−1＝1023＝3×11×31。"}]},{"title":"02｜方程、函數與極值","desc":"碰到四次式先設 t＝x²；碰到乘積極大先把條件標準化，再用 (u−v)²≥0。","signal":["只有 x⁴ 與 x² → 設 t＝x²≥0","第一象限橢圓上的矩形 → 轉化成 u²＋v²＝1","「最小值」 → 配方法、範圍與等號成立條件"],"theories":["01. 若 f(x)＝x⁴＋bx²＋c，設 t＝x²≥0，原問題化為求 t²＋bt＋c 在 t≥0 的最小值。","02. 若 u²＋v²＝1 且 u、v≥0，因 (u−v)²≥0，所以 2uv≤1，且 u＝v＝1/√2 時等號成立。","03. 條件式題目必須檢查定義域與等號是否能成立，不能只完成平方卻忽略 t≥0。"],"examples":[{"title":"第17屆複試第4題｜雙四次函數","question":"M₁＝min(x⁴＋3x²−1)，M₂＝min(x⁴−3x²＋1)，求 M₁−M₂。","steps":["01 設 t＝x²≥0。第一式 t²＋3t−1 在 t≥0 時最小為 −1（t＝0）。","02 第二式 t²−3t＋1＝(t−3/2)²−5/4，在 t＝3/2 時最小為 −5/4。","03 故 M₁−M₂＝−1−(−5/4)＝1/4。"],"answer":"結論｜1/4","warning":"警戒：t＝x² 只能取非負值；極值不能忽略等號成立點。"},{"title":"第16屆複試第3題｜橢圓內接矩形","question":"第一象限的點 (x,y) 滿足 x²/25＋y²/9＝1。以坐標軸圍成矩形，求最大面積 xy。","steps":["01 設 u＝x/5，v＝y/3，則 u²＋v²＝1，且 xy＝15uv。","02 因 2uv≤u²＋v²＝1，所以 xy≤15/2。","03 u＝v＝1/√2 時達成等號，點 (5/√2,3/√2) 確實在第一象限。"],"answer":"結論｜15/2＝7.5","warning":"此題使用「標準化＋平方非負」即可，不必使用微積分。"}],"practice":[{"id":"B1","difficulty":"基礎","question":"求 f(x)＝x⁴−6x²＋4 的最小值。","answer":"−5","why":"令 t＝x²≥0，f＝(t−3)²−5。"},{"id":"B2","difficulty":"基礎","question":"求 g(x)＝x⁴＋4x²＋7 的最小值。","answer":"7","why":"各非負項在 x＝0 同時取零。"},{"id":"B3","difficulty":"中階","question":"在 x²/36＋y²/16＝1 的第一象限，求 xy 的最大值。","answer":"12","why":"令 u＝x/6、v＝y/4，xy＝24uv≤12。"},{"id":"B4","difficulty":"進階","question":"(x−1)²＋(y＋2)²＝25，求 x＋y 的最大值。","answer":"−1＋5√2","why":"設 X＝x−1、Y＝y＋2，X＋Y≤√2√(X²＋Y²)。"},{"id":"B5","difficulty":"基礎","question":"求 x²−8x＋23 的最小值。","answer":"7","why":"x²−8x＋23＝(x−4)²＋7。"},{"id":"B6","difficulty":"中階","question":"若 x²＋y²＝50 且 x,y≥0，求 x＋y 的最大值。","answer":"10","why":"(x＋y)²≤2(x²＋y²)＝100。"}]},{"title":"03｜整數論、最大公因數與循環小數","desc":"看見「最小正整數」找 gcd；「餘數、週期、循環小數」找模數和乘法週期。","signal":["ax＋by（x,y 為整數）最小正值 → gcd(a,b)","巨大整數／冪次求餘數 → 分模數找週期","1/n 的循環節長 → 先去掉因數 2、5，再找 10 的乘法階"],"theories":["01. 輾轉相除：gcd(a,b)＝gcd(b,a mod b)，直到餘數為零。","02. 貝祖等式：整數線性組合 ax＋by 所能得到的整數，恰為 gcd(a,b) 的所有倍數。","03. 若 n＝2ᵃ5ᵇm 且 gcd(m,10)＝1，1/n 的循環節長等於最小的 k>0，使 10ᵏ≡1（mod m）。當 m＝1 時為有限小數。"],"examples":[{"title":"第17屆複試第1題｜大數輾轉相除","question":"求 gcd(38021,88453)。","steps":["01 88453＝2×38021＋12411；38021＝3×12411＋788。","02 12411＝15×788＋591；788＝1×591＋197。","03 591＝3×197＋0，因此 gcd＝197。"],"answer":"結論｜197","warning":"每步都要保留「被除數＝商×除數＋餘數」，避免心算遺失商數。"},{"title":"第19屆複試第6題｜最小正整數","question":"當 x、y 任取整數時，1457x−893y 的最小正值為何？","steps":["01 使用輾轉相除：1457＝893＋564；893＝564＋329；564＝329＋235；329＝235＋94；235＝2×94＋47；94＝2×47。","02 因此 gcd(1457,893)＝47。","03 因為 x、y 可取任意整數，貝祖等式保證某組整數 x,y 使線性組合恰等於 47。"],"answer":"結論｜47","warning":"警戒：若 x,y 限制為非負整數，答案就不能直接套 gcd。"}],"practice":[{"id":"C1","difficulty":"基礎","question":"求 gcd(252,198)。","answer":"18","why":"252−198＝54；198＝3×54＋36；54＝36＋18。"},{"id":"C2","difficulty":"中階","question":"求 gcd(987,610)。","answer":"1","why":"兩數是相鄰費氏數，亦可使用輾轉相除確認互質。"},{"id":"C3","difficulty":"基礎","question":"整數 x,y 的 52x−30y 所能取得的最小正值？","answer":"2","why":"gcd(52,30)＝2。"},{"id":"C4","difficulty":"進階","question":"1/28 的循環節長度為何？","answer":"6","why":"28＝4×7，去除因數 2 後，10 mod 7 的週期是 6。"},{"id":"C5","difficulty":"中階","question":"求 7²⁰²⁶ 除以 10 的餘數。","answer":"9","why":"7,9,3,1 四項循環；2026≡2（mod 4）。"},{"id":"C6","difficulty":"進階","question":"2025 的正因數共有幾個？","answer":"15","why":"2025＝3⁴×5²，個數 (4＋1)(2＋1)＝15。"}]},{"title":"04｜數列、遞迴與大指數週期","desc":"遇到 a₂₀₂₆ 不直接算 2026 次；先看「模數」如何簡化遞迴。","signal":["遞迴係數與除數有公因數 → 先取模","aₙ₊₁＝kaₙ＋b → 平移常數找等比數列","費氏數列求餘數 → 找餘數狀態循環"],"theories":["01. 若 aₙ≡c aₙ₋₁（mod m），則 aₙ≡cⁿ⁻¹a₁（mod m）；只需掌握 c 的週期。","02. 對 aₙ₊₁＝kaₙ＋b（k≠1），找常數 c＝b/(k−1)，則 aₙ₊₁＋c＝k(aₙ＋c)。","03. 二階遞迴必須記住「相鄰兩項餘數」的狀態，不能只看某一項重複就認定整個數列重新開始。"],"examples":[{"title":"第19屆複試第3題｜遞迴模 5","question":"a₀＝6，a₁＝9，aₙ＝7aₙ₋₁＋10aₙ₋₂（n≥2），求 a₂₀₂₆ 除以 5 的餘數。","steps":["01 模 5 後，7≡2，10≡0，因此 aₙ≡2aₙ₋₁（mod 5）。","02 a₁≡4，所以 a₂₀₂₆≡4×2²⁰²⁵（mod 5）。","03 2⁴≡1（mod 5），2025≡1（mod 4），故餘數為 4×2≡3。"],"answer":"結論｜3","warning":"秒殺：最重要的是先觀察 10aₙ₋₂ 在模 5 下直接消失。"},{"title":"第18屆複試第3題｜移項成等比","question":"a₁＝5，aₙ＝3aₙ₋₁＋2，求 a₂₀₂₅ 除以 80 的餘數。","steps":["01 兩邊加 1：aₙ＋1＝3(aₙ₋₁＋1)。","02 因此 aₙ＋1＝(a₁＋1)3ⁿ⁻¹＝6×3ⁿ⁻¹。","03 3⁴＝81≡1（mod 80），2024 為 4 的倍數，故 a₂₀₂₅≡6−1≡5。"],"answer":"結論｜5","warning":"警戒：要轉為等比的是 aₙ＋1，不是 aₙ 本身。"}],"practice":[{"id":"D1","difficulty":"基礎","question":"a₀＝2，aₙ＝4aₙ₋₁＋5，求 a₂₀₂₆ 除以 5 的餘數。","answer":"2","why":"模 5 後 aₙ≡4aₙ₋₁；4 的偶次冪≡1。"},{"id":"D2","difficulty":"進階","question":"b₁＝3，bₙ₊₁＝2bₙ＋1，求 b₂₀₂₇ 除以 7 的餘數。","answer":"0","why":"bₙ＋1＝4×2ⁿ⁻¹；2026≡1（mod 3），故 b₂₀₂₇≡8−1≡0。"},{"id":"D3","difficulty":"進階","question":"費氏數列 F₀＝0、F₁＝1，求 F₂₀₂₆ 除以 5 的餘數。","answer":"3","why":"費氏數列模 5 的狀態週期為 20；F₂₀₂₆≡F₆＝8≡3。"},{"id":"D4","difficulty":"基礎","question":"a₁＝1，aₙ₊₁＝aₙ＋3，求 a₁₀₀。","answer":"298","why":"等差數列 a₁₀₀＝1＋99×3。"},{"id":"D5","difficulty":"基礎","question":"2＋4＋⋯＋200＝？","answer":"10100","why":"共 100 項，和為 (2＋200)×100/2。"},{"id":"D6","difficulty":"中階","question":"a₁＝5，aₙ＝3aₙ₋₁＋2，求 a₂₀₂₆ 除以 80 的餘數。","answer":"17","why":"aₙ＝6×3ⁿ⁻¹−1；3²⁰²⁵≡3（mod 80），故餘數 17。"}]},{"title":"05｜平面幾何、三角形與圓","desc":"先找圓心、半徑、相似、正弦與面積關係；角度未定時小心兩個解。","signal":["等面積的正方形與正三角形 → 先設邊長關係","兩邊與面積，求第三邊 → sin 可能對應銳角或鈍角","直線與圓、弦長 → 圓心到直線距離與畢氏定理"],"theories":["01. 正方形邊長 s：外接圓半徑 R＝s/√2。正三角形邊長 t：外接圓半徑 R＝t/√3。","02. 三角形面積 K＝(1/2)ab sin θ；知道 sin θ 但不知道角度範圍時，cos θ 有正負兩種可能。","03. 半徑 R 的圓，距圓心 d（0≤d≤R）的直線截出弦長 L＝2√(R²−d²)。"],"examples":[{"title":"第19屆複試第1題｜等面積比較外接圓","question":"正方形與正三角形面積相等；求兩者外接圓面積比（正方形：正三角形）。","steps":["01 設正方形邊長 s、正三角形邊長 t。由面積相等得 s²＝(√3/4)t²。","02 兩個外接圓面積分別為 πs²/2 與 πt²/3。","03 比值＝(s²/2)/(t²/3)＝3s²/(2t²)＝3√3/8。"],"answer":"結論｜3√3/8","warning":"先消去共同的 π，再比較半徑平方，最省時間。"},{"title":"第17屆複試第5題｜隱藏的雙解","question":"AB＝75、AC＝77、面積＝2310，求 BC。原檔答案列為 68，然而題幹沒有規定頂角是銳角。","steps":["01 設 ∠A＝θ，則 sin θ＝(2×2310)/(75×77)＝4/5，因此 cos θ＝±3/5。","02 由餘弦定理 BC²＝75²＋77²−2×75×77 cos θ。","03 若 cos θ＝3/5，BC²＝4624，BC＝68；若 cos θ＝−3/5，BC²＝18484，BC＝2√4621。"],"answer":"結論｜68 或 2√4621（依原題文字）","warning":"審題警報：若缺少「∠A 為銳角」等條件，兩組三角形都符合；不能直接排除鈍角。"}],"practice":[{"id":"E1","difficulty":"基礎","question":"邊長 6 的正方形，其外接圓面積為何？","answer":"18π","why":"半徑平方為對角線平方的 1/4：R²＝36/2＝18。"},{"id":"E2","difficulty":"基礎","question":"邊長 6 的正三角形，其外接圓面積為何？","answer":"12π","why":"R＝6/√3＝2√3，面積 12π。"},{"id":"E3","difficulty":"進階","question":"△ABC 滿足 AB＝13、AC＝14、面積 84，求 BC 的所有可能長度。","answer":"15 或 √505","why":"sin A＝12/13，cos A＝±5/13，餘弦定理產生兩解。"},{"id":"E4","difficulty":"中階","question":"圓內接四邊形四邊長依序都是 5，求其面積。","answer":"25","why":"等邊圓內接四邊形必為正方形，面積 5²。"},{"id":"E5","difficulty":"中階","question":"直角三角形兩股為 9、12，其外接圓半徑為何？","answer":"15/2","why":"斜邊長 15，直角三角形外接圓半徑是斜邊一半。"},{"id":"E6","difficulty":"進階","question":"三角形三邊長 13、14、15，求面積。","answer":"84","why":"半周長 21，海龍公式 √[21×8×7×6]＝84。"}]},{"title":"06｜坐標幾何、角平分線與垂心","desc":"角平分線方向可用兩單位向量相加；垂心可利用垂直斜率或外心向量。","signal":["點在角平分線且知道 y 坐標 → 求方向比例","其中一邊水平 → 相應的高為鉛直線","外心與垂心 → 觀察 AH 與 OD 的二倍向量關係"],"theories":["01. 從 O 出發的兩射線 OA、OB，其內角平分線方向可取 OA/|OA|＋OB/|OB|（非零）。","02. 若 BC 水平，從 A 出發的高必為 x＝A 的 x 坐標；再找另一條高的方程式即可得到垂心。","03. 斜率 m₁、m₂（皆存在）互相垂直的判準是 m₁m₂＝−1；遇到鉛直線要另行處理。"],"examples":[{"title":"第19屆複試第7題｜角平分線方向","question":"O(0,0)、A(3,4)、B(7,0)，P 在 ∠AOB 的內角平分線且 y＝9，求 x。","steps":["01 OA 長 5、OB 長 7，兩單位向量分別為 (3/5,4/5)、(1,0)。","02 相加得方向 (8/5,4/5)＝(2,1) 的倍數。","03 因此內角平分線上的 P 滿足 x:y＝2:1；y＝9，所以 x＝18。"],"answer":"結論｜18","warning":"不要直接把 OA、OB 兩個原向量相加，必須先變成單位向量。"},{"title":"第19屆複試第10題｜坐標垂心","question":"A(5,12)、B(12,−5)、C(−12,−5)，求垂心 H。","steps":["01 因 BC 水平，從 A 作高為 x＝5。","02 AC 的斜率為 (−5−12)/(−12−5)＝1，所以從 B 出發的高斜率為 −1。","03 從 B 出發的高：y＋5＝−(x−12)；代 x＝5，得 y＝2。"],"answer":"結論｜H＝(5,2)","warning":"考卷要求計算過程；直接寫坐標，不展現兩條高的建立方式，不利取得過程分。"}],"practice":[{"id":"F1","difficulty":"基礎","question":"O(0,0)、A(6,8)、B(9,0)。角平分線上的 P 的 y 坐標為 5，求 x。","answer":"10","why":"單位向量和方向 (2,1)，故 x＝2y。"},{"id":"F2","difficulty":"進階","question":"A(3,7)、B(9,−1)、C(−5,−1)，求垂心。","answer":"(3,5)","why":"BC 水平，x＝3；AC 斜率 1，B 高斜率 −1，代入得 y＝5。"},{"id":"F3","difficulty":"基礎","question":"點 (−3,4) 到原點的距離為何？","answer":"5","why":"√[（−3）²＋4²]＝5。"},{"id":"F4","difficulty":"中階","question":"原點到直線 3x＋4y＝20 的距離為何？","answer":"4","why":"|−20|/√(3²＋4²)＝20/5＝4。"},{"id":"F5","difficulty":"基礎","question":"A(2,1)、B(6,4)，求 AB。","answer":"5","why":"√[(6−2)²＋(4−1)²]＝5。"},{"id":"F6","difficulty":"基礎","question":"A(−2,7)、B(8,−3)，求中點坐標。","answer":"(3,2)","why":"兩坐標分別取平均。"}]},{"title":"07｜統計、組合與生活情境建模","desc":"長題不逐字重讀：先標出總人數、每人票數、排序條件與幾種分類。","signal":["中位數不變 → 排序後觀察中央位置","選出前 k 名，問「至少幾票保證」 → 找最壞分票配置","從 n 個物件選 k 個不計順序 → 組合數"],"theories":["01. 偶數筆資料的中位數是排好序後中央兩數的平均；新增一筆資料後，中央位置改變。","02. 總票數 V，若某選項得 t 票，要保證它在「前 k 名」且不怕同票，必須排除有另外 k 個選項都得到至少 t 票；充分條件是 (k＋1)t>V。","03. 事件概率在等可能模型下為有利情況數/全部情況數；無放回抽樣要逐次修改分母。"],"examples":[{"title":"第18屆 A 組初試第2題｜中位數不變","question":"原先 8 人年齡為 4、42、31、48、6、62、44、49；再增加 1 人，中位數仍不變，求新增年齡。","steps":["01 排序：4、6、31、42、44、48、49、62。","02 原中位數為 (42＋44)/2＝43。","03 新增後有 9 人，中位數為排序第 5 個；唯有新增數字 43，才能使第 5 個數字等於 43。"],"answer":"結論｜43 歲","warning":"警戒：偶數與奇數筆資料的中位數定義不同。"},{"title":"第19屆 A 組初試第6題｜投票保證入選","question":"全班 29 人各投 2 個不同地點，共 5 地點選出得票較高的 3 個；某地點至少幾票才保證入選（同票不保證）？","steps":["01 總票數 V＝29×2＝58。","02 若指定地點得 t 票且未能保證入選，至少還有 3 個地點各有 ≥t 票，因此 4t≤58。","03 要排除這種情況，需 4t>58，所以 t≥15。"],"answer":"結論｜15 票","warning":"此為「保證」的充分門檻，不是平均票數 58/5。"}],"practice":[{"id":"G1","difficulty":"進階","question":"31 人各投 2 個不同地點，共 5 地點取前 3 名；同票不保證時，某地點至少幾票才保證入選？","answer":"16 票","why":"共有 62 票，4t>62 的最小整數 t 為 16。"},{"id":"G2","difficulty":"基礎","question":"六筆資料排序為 1、3、5、9、11、13。加入一筆後中位數仍是原值，該數應為多少？","answer":"7","why":"原中位數為 7，七筆資料第 4 個必須是 7。"},{"id":"G3","difficulty":"基礎","question":"只有雞與兔共 50 隻，腳共 130 隻，兔子有幾隻？","answer":"15 隻","why":"(130−2×50)/2＝15。"},{"id":"G4","difficulty":"中階","question":"袋中 3 顆紅球、2 顆藍球，不放回連抽 2 顆，兩顆皆紅的機率？","answer":"3/10","why":"(3/5)(2/4)＝3/10。"},{"id":"G5","difficulty":"中階","question":"8 人中不計順序選出 3 人，共有幾種？","answer":"56","why":"C(8,3)＝8×7×6/(3×2×1)。"},{"id":"G6","difficulty":"基礎","question":"7 個數的平均是 12，加入數字 20 後，新平均為何？","answer":"13","why":"(7×12＋20)/8＝13。"}]},{"title":"08｜複試證明、空間幾何與高階轉譯","desc":"複試不只求答案；要把「成立理由」逐句寫清楚，並標出何處使用定理。","signal":["三角形的外心與垂心 → 設向量或作中點","直角三角形整數邊 → 平方差分解","四顆等半徑球兩兩外切 → 球心構成正四面體"],"theories":["01. 若 O 是外心，將 O 作原點、三頂點向量設為 a,b,c，則 |a|＝|b|＝|c|，垂心向量 h＝a＋b＋c。","02. 奇數股長 a 的整數畢氏三角形：若另一股 b、斜邊 c，則 (c−b)(c＋b)＝a²。找同奇偶的因數配對即可。","03. 邊長 s 的正四面體外接球半徑為 s√6/4。等半徑小球的球心若構成正四面體，外包球半徑為「正四面體外接半徑＋小球半徑」。"],"examples":[{"title":"第19屆複試第9題｜AH＝2OD 證明","question":"三角形 ABC 的垂心 H、外心 O，D 為 O 到 BC 的垂足。證明線段 AH＝2OD。","steps":["01 以 O 為原點，設三頂點位置向量為 a,b,c，因此 |a|＝|b|＝|c|。","02 令 h＝a＋b＋c。則 (h−a)·(b−c)＝(b＋c)·(b−c)＝|b|²−|c|²＝0，故 AH⊥BC；同理可得另兩條高，因此 h 為垂心向量。","03 因 OB＝OC，O 到 BC 的垂足 D 也就是 BC 中點，所以 d＝(b＋c)/2。","04 於是 h−a＝b＋c＝2d，故向量 AH＝2向量 OD，取長度得 AH＝2OD。"],"answer":"結論｜AH＝2OD","warning":"進階證明重點：先證 h 真的是垂心，不能直接無由來地聲稱 h＝a＋b＋c。"},{"title":"第18屆複試第2題｜整數直角三角形","question":"一直角三角形三邊皆為正整數，其中一股為 31，求斜邊長。","steps":["01 設另一股為 b、斜邊為 c，則 c²−b²＝31²＝961。","02 因此 (c−b)(c＋b)＝961＝31²；因 c>b>0，且兩因數為正的同奇偶整數，只能取 (1,961)。","03 故 c＝(1＋961)/2＝481，b＝(961−1)/2＝480。"],"answer":"結論｜481","warning":"(31,31) 對應 b＝0，不是三角形，必須刪除。"}],"practice":[{"id":"H1","difficulty":"進階","question":"正整數直角三角形其中一股為 21，求斜邊所有可能整數長度。","answer":"29、35、75、221","why":"(c−b)(c＋b)＝441，因數配對 (9,49)、(7,63)、(3,147)、(1,441)。"},{"id":"H2","difficulty":"中階","question":"一直角三角形其中一股為 15，求斜邊所有可能整數長度。","answer":"17、25、39、113","why":"(c−b)(c＋b)＝225，列正因數配對。"},{"id":"H3","difficulty":"進階","question":"四顆半徑皆為 1 且兩兩外切的球，外包大球與四小球皆內切，求大球半徑。","answer":"1＋√6/2","why":"球心正四面體邊長 2，外接球半徑 2√6/4＝√6/2。"},{"id":"H4","difficulty":"中階","question":"正四面體邊長 4，求外接球半徑。","answer":"√6","why":"代入 R＝s√6/4。"},{"id":"H5","difficulty":"進階","question":"A(0,4)、B(−3,0)、C(3,0)，求垂心。","answer":"(0,9/4)","why":"A 的高 x＝0；AC 斜率 −4/3，B 高斜率 3/4。"},{"id":"H6","difficulty":"延伸","question":"圓內接四邊形邊長依序為 1、7、7、5，利用婆羅摩笈多公式求面積。","answer":"9√5","why":"半周長 s＝10，面積 √[(s−1)(s−7)(s−7)(s−5)]＝√405。"}]}],"mock":[{"id":"01","question":"化簡 (3x−2)(x＋4)−(3x−2)(x−1)。","options":[{"id":"A","text":"5(3x−2)"},{"id":"B","text":"(3x−2)(2x＋3)"},{"id":"C","text":"5(x−2)"},{"id":"D","text":"(3x−2)(x＋5)"}],"answer":"A","why":"共同因式 (3x−2)，另一因式為 5。"},{"id":"02","question":"只有雞與兔共 40 隻，總腳數 110。兔子幾隻？","options":[{"id":"A","text":"10"},{"id":"B","text":"15"},{"id":"C","text":"20"},{"id":"D","text":"25"}],"answer":"B","why":"(110−2×40)/2＝15。"},{"id":"03","question":"依次倒出剩餘水的 1/2、1/3、1/4、……；剩餘原量的 1/12 時，共倒幾次？","options":[{"id":"A","text":"9"},{"id":"B","text":"10"},{"id":"C","text":"11"},{"id":"D","text":"12"}],"answer":"C","why":"倒 k 次剩 1/(k＋1)。"},{"id":"04","question":"求 294 與 210 的最大公因數。","options":[{"id":"A","text":"42"},{"id":"B","text":"21"},{"id":"C","text":"14"},{"id":"D","text":"7"}],"answer":"A","why":"294−210＝84；210＝2×84＋42。"},{"id":"05","question":"6²⁰²⁶ 除以 5 的餘數為何？","options":[{"id":"A","text":"0"},{"id":"B","text":"2"},{"id":"C","text":"1"},{"id":"D","text":"4"}],"answer":"C","why":"6≡1（mod 5）。"},{"id":"06","question":"8 筆資料為 2、4、6、8、10、12、14、16；加入一筆後中位數仍為 9。新增數字是？","options":[{"id":"A","text":"9"},{"id":"B","text":"8"},{"id":"C","text":"10"},{"id":"D","text":"11"}],"answer":"A","why":"原本中位數為 9；新資料第 5 筆須為 9。"},{"id":"07","question":"數列 aₙ＝2n＋1，求 a₅₀。","options":[{"id":"A","text":"99"},{"id":"B","text":"101"},{"id":"C","text":"103"},{"id":"D","text":"105"}],"answer":"B","why":"2×50＋1＝101。"},{"id":"08","question":"袋中紅球 2 顆、藍球 3 顆，不放回連抽兩顆，皆為紅球的機率？","options":[{"id":"A","text":"1/5"},{"id":"B","text":"3/10"},{"id":"C","text":"1/4"},{"id":"D","text":"1/10"}],"answer":"D","why":"(2/5)(1/4)＝1/10。"},{"id":"09","question":"圓半徑 13，圓心到一條弦的距離為 5。求弦長。","options":[{"id":"A","text":"12"},{"id":"B","text":"24"},{"id":"C","text":"26"},{"id":"D","text":"20"}],"answer":"B","why":"2√(13²−5²)＝24。"},{"id":"10","question":"邊長 6 的正三角形面積為何？","options":[{"id":"A","text":"6√3"},{"id":"B","text":"12√3"},{"id":"C","text":"9√3"},{"id":"D","text":"18√3"}],"answer":"C","why":"√3/4×6²＝9√3。"},{"id":"11","question":"求 x²−6x＋11 的最小值。","options":[{"id":"A","text":"2"},{"id":"B","text":"3"},{"id":"C","text":"5"},{"id":"D","text":"11"}],"answer":"A","why":"(x−3)²＋2。"},{"id":"12","question":"1/14 的循環節長度為何？","options":[{"id":"A","text":"1"},{"id":"B","text":"2"},{"id":"C","text":"3"},{"id":"D","text":"6"}],"answer":"D","why":"去除因數 2 後，10 mod 7 的階為 6。"},{"id":"13","question":"兩股為 5、12 的直角三角形，其斜邊長？","options":[{"id":"A","text":"10"},{"id":"B","text":"11"},{"id":"C","text":"13"},{"id":"D","text":"17"}],"answer":"C","why":"5²＋12²＝13²。"},{"id":"14","question":"直線 y＝2x−3，當 x＝4 時 y＝？","options":[{"id":"A","text":"3"},{"id":"B","text":"5"},{"id":"C","text":"7"},{"id":"D","text":"8"}],"answer":"B","why":"y＝8−3＝5。"},{"id":"15","question":"900 的正因數共有幾個？","options":[{"id":"A","text":"18"},{"id":"B","text":"20"},{"id":"C","text":"24"},{"id":"D","text":"27"}],"answer":"D","why":"900＝2²×3²×5²；因數數量 3³＝27。"},{"id":"16","question":"7 人中選 2 人，不計順序，共有幾種？","options":[{"id":"A","text":"21"},{"id":"B","text":"42"},{"id":"C","text":"14"},{"id":"D","text":"7"}],"answer":"A","why":"C(7,2)＝21。"},{"id":"17","question":"3¹⁰⁰ 除以 10 的餘數？","options":[{"id":"A","text":"3"},{"id":"B","text":"1"},{"id":"C","text":"7"},{"id":"D","text":"9"}],"answer":"B","why":"3 的末位 3、9、7、1 四項循環。"},{"id":"18","question":"點 (3,8) 到直線 y＝2 的距離為何？","options":[{"id":"A","text":"2"},{"id":"B","text":"4"},{"id":"C","text":"6"},{"id":"D","text":"8"}],"answer":"C","why":"水平直線距離為 |8−2|＝6。"},{"id":"19","question":"5 個數平均為 15，再加入一數後平均為 16，新增的數為何？","options":[{"id":"A","text":"16"},{"id":"B","text":"18"},{"id":"C","text":"20"},{"id":"D","text":"21"}],"answer":"D","why":"6×16−5×15＝21。"},{"id":"20","question":"解方程式 (x＋2)²＝25。","options":[{"id":"A","text":"x＝5 或 −5"},{"id":"B","text":"x＝3 或 −7"},{"id":"C","text":"x＝7 或 −3"},{"id":"D","text":"x＝3 或 7"}],"answer":"B","why":"x＋2＝±5，x＝3 或 −7。"},{"id":"21","question":"等差數列首項 7、公差 3，第 20 項為何？","options":[{"id":"A","text":"60"},{"id":"B","text":"61"},{"id":"C","text":"64"},{"id":"D","text":"67"}],"answer":"C","why":"7＋19×3＝64。"},{"id":"22","question":"1＋2＋⋯＋40＝？","options":[{"id":"A","text":"820"},{"id":"B","text":"800"},{"id":"C","text":"840"},{"id":"D","text":"810"}],"answer":"A","why":"40×41/2＝820。"},{"id":"23","question":"面積為 50 的正方形，其外接圓半徑為何？","options":[{"id":"A","text":"√5"},{"id":"B","text":"5"},{"id":"C","text":"5√2"},{"id":"D","text":"10"}],"answer":"B","why":"R²＝s²/2＝25，所以 R＝5。"},{"id":"24","question":"x、y 任取整數時，84x＋30y 的最小正值為何？","options":[{"id":"A","text":"2"},{"id":"B","text":"3"},{"id":"C","text":"12"},{"id":"D","text":"6"}],"answer":"D","why":"gcd(84,30)＝6。"},{"id":"25","question":"正十二邊形內角和為何？","options":[{"id":"A","text":"1440°"},{"id":"B","text":"1620°"},{"id":"C","text":"1800°"},{"id":"D","text":"1980°"}],"answer":"C","why":"(12−2)×180°＝1800°。"},{"id":"26","question":"正整數 x,y 滿足 x²＋y²＝34，共有幾組有序解？","options":[{"id":"A","text":"2"},{"id":"B","text":"1"},{"id":"C","text":"4"},{"id":"D","text":"0"}],"answer":"A","why":"只有 (3,5)、(5,3) 兩組正整數解。"},{"id":"27","question":"10²⁰²⁶ 除以 7 的餘數為何？","options":[{"id":"A","text":"1"},{"id":"B","text":"2"},{"id":"C","text":"4"},{"id":"D","text":"6"}],"answer":"C","why":"10≡3（mod 7），2026≡4（mod 6），3⁴≡4。"},{"id":"28","question":"直角三角形兩股為 5、12，面積為何？","options":[{"id":"A","text":"15"},{"id":"B","text":"20"},{"id":"C","text":"25"},{"id":"D","text":"30"}],"answer":"D","why":"5×12/2＝30。"},{"id":"29","question":"圓內接四邊形的邊長依序為 4、4、6、6，求面積。","options":[{"id":"A","text":"20"},{"id":"B","text":"24"},{"id":"C","text":"25"},{"id":"D","text":"30"}],"answer":"B","why":"半周長 10，婆羅摩笈多公式得 √(6²×4²)＝24。"},{"id":"30","question":"1、2、3、……、99 的平均數為何？","options":[{"id":"A","text":"50"},{"id":"B","text":"49"},{"id":"C","text":"49.5"},{"id":"D","text":"51"}],"answer":"A","why":"等差數列平均為 (首項＋末項)/2＝50。"}],"final":[{"id":"R01","question":"求 1232 與 748 的最大公因數。","type":"填充題","answer":"44","steps":["1232＝748＋484；748＝484＋264；484＝264＋220。","264＝220＋44；220＝5×44，因此最大公因數為 44。"]},{"id":"R02","question":"1/44 化為十進位小數，其循環節長度為何？","type":"填充題","answer":"2","steps":["44＝4×11；前面的因數 4 只影響不循環部分。","10≡−1（mod 11），因此 10²≡1（mod 11），且 10¹≢1，循環節長為 2。"]},{"id":"R03","question":"a₀＝1、a₁＝4，且 aₙ＝6aₙ₋₁＋5aₙ₋₂（n≥2）。求 a₂₀₂₇ 除以 5 的餘數。","type":"填充題","answer":"4","steps":["模 5 後 aₙ≡aₙ₋₁（mod 5）。","所有 n≥1 的 aₙ 都與 a₁＝4 同餘，答案為 4。"]},{"id":"R04","question":"求 f(x)＝x⁴−8x²＋9 的最小值。","type":"填充題","answer":"−7","steps":["令 t＝x²≥0，f＝t²−8t＋9＝(t−4)²−7。","t＝4（即 x＝±2）可達成，最小值為 −7。"]},{"id":"R05","question":"正方形與正三角形周長相等，求正方形外接圓面積與正三角形外接圓面積的比值。","type":"填充題","answer":"27/32","steps":["設正方形邊長 s、正三角形邊長 t，4s＝3t，所以 s/t＝3/4。","兩外接圓面積為 πs²/2、πt²/3；比值＝(3/2)(s/t)²＝(3/2)(9/16)＝27/32。"]},{"id":"R06","question":"整數直角三角形其中一股是 19，求斜邊長。","type":"填充題","answer":"181","steps":["設另一股 b、斜邊 c，(c−b)(c＋b)＝19²＝361。","正的奇數因數配對只有 (1,361) 與 (19,19)，後者 b＝0 不合法；因此 c＝(1＋361)/2＝181。"]},{"id":"R07","question":"四顆半徑為 3 的球兩兩相外切；另一大球內切這四顆小球，求大球半徑。","type":"填充題","answer":"3＋3√6/2","steps":["四小球球心構成邊長 6 的正四面體，其外接球半徑為 6√6/4＝3√6/2。","大球球心在正四面體外心，大球半徑為外接半徑加小球半徑，故為 3＋3√6/2。"]},{"id":"R08","question":"O(0,0)、A(5,12)、B(13,0)，P 在 ∠AOB 的內角平分線上且 y＝6，求 P 的 x 坐標。","type":"填充題","answer":"9","steps":["單位向量 OA/13＝(5/13,12/13)，OB/13＝(1,0)。","和為 (18/13,12/13)，方向比為 3:2。y＝6，得 x＝9。"]},{"id":"R09","question":"A(4,9)、B(10,−3)、C(−8,−3)，求垂心 H 坐標，寫出兩條高的方程式。","type":"計算題","answer":"(4,3)","steps":["BC 為水平線，從 A 出發的高是 x＝4。","AC 斜率為 (−3−9)/(−8−4)＝1，因此從 B 出發的高斜率 −1：y＋3＝−(x−10)。","代入 x＝4，得到 y＝3，故 H＝(4,3)。"]},{"id":"R10","question":"證明：若 O 是三角形 ABC 的外心，H 是垂心，D 是 O 到 BC 的垂足，則 AH＝2OD。","type":"證明題","answer":"證明題","steps":["取 O 為原點，三頂點位置向量為 a,b,c，且 |a|＝|b|＝|c|。","令 h＝a＋b＋c。因 (h−a)·(b−c)＝(b＋c)·(b−c)＝|b|²−|c|²＝0，同理另兩高也成立，故 h 為垂心 H 的位置向量。","OB＝OC，故 D 是 BC 中點，位置向量 d＝(b＋c)/2。","因此 AH 向量＝h−a＝b＋c＝2d＝2OD 向量，取長度得 AH＝2OD。"]}],"schedule":[{"week":"第 1 週","focus":"初試診斷＋01 快算","task":"30 題模擬第一次；每天 12 題快算，整理公因式與望遠鏡連乘。"},{"week":"第 2 週","focus":"02 函數極值","task":"每天 6 題配方／條件最值；同題練兩種解法，寫清等號。"},{"week":"第 3 週","focus":"03 整數論","task":"每天 8 題 gcd、整數線性組合、因數與循環節。"},{"week":"第 4 週","focus":"04 數列週期","task":"模 5、模 7、模 80 三種難度，各做 5 題；複查遞迴的初始值。"},{"week":"第 5 週","focus":"05 幾何","task":"每天 5 題：圓、三角形面積、外接圓；畫圖並查雙解。"},{"week":"第 6 週","focus":"06 坐標＋07 應用","task":"隔日交替練角平分線／垂心與中位數／投票題。"},{"week":"第 7 週","focus":"08 複試證明","task":"每天限時 1 題大題，完成假設、推導、結論與自我批改。"},{"week":"第 8 週","focus":"歷屆實戰與總複習","task":"初試 35 分鐘整卷×2；複試 105 分鐘整卷×1；重做錯題。"}],"signals":[["兩個長乘積都出現同一括號","AB−AC＝A(B−C)","減號分配到每一項"],["連續倒出剩餘量 1/2、1/3、…","(1/2)(2/3)⋯(k/(k＋1))＝1/(k＋1)","比例基準是否是「剩餘」"],["四次式只有 x⁴、x²","t＝x²≥0，再配方","t 的合法範圍"],["橢圓上的矩形面積","u＝x/a、v＝y/b；2uv≤u²＋v²","等號 u＝v 可否成立"],["ax＋by 的最小正整數","gcd(a,b)，配貝祖等式","x,y 是否可取任意整數"],["1/n 的循環節長度","先去掉 2、5；求 10ᵏ≡1（mod m）最小 k","循環節與不循環部分區別"],["大下標遞迴求餘數","先取模，尋找週期或轉等比","從第幾項才開始遞迴"],["兩邊及面積求第三邊","sin θ＝2K/(ab)，再用餘弦定理","cos θ 正負可能有兩解"],["角平分線的方向","OA/|OA|＋OB/|OB|","先單位化再相加"],["垂心或 AH＝2OD","高的垂直性；向量 h＝a＋b＋c","先確立 O 是外心"],["四球兩兩相切","球心正四面體，R＝a√6/4＋小球半徑","外切、內切及球心距"],["前 3 名保證入選","總票數 V，排除 4t≤V 的最壞分票","同票規則與每人投票限制"]],"sourcesNote":"本網站整理自上傳的第16–19屆蘭陽盃數學金頭腦試卷與先前編製的進階備考講義；歷屆典型題為原題題意轉述，練習與模擬題為另編。"}</script>
+<script>
+(()=>{
+'use strict';
+const DATA=JSON.parse(document.getElementById('curriculum').textContent);
+const KEY='lanynag_math_web_v2';
+const fresh=()=>({page:'home',chapter:0,practice:{},initialAnswers:{},initialSubmitted:false,finalAnswers:{},finalMarks:{},finalSubmitted:false,weekDone:[],timers:{initial:{remaining:2100,active:false,endAt:0},final:{remaining:6300,active:false,endAt:0}}});
+let state=fresh();
+try{const old=JSON.parse(localStorage.getItem(KEY)||'null');if(old){state={...fresh(),...old,timers:{...fresh().timers,...(old.timers||{})}}}}catch(e){}
+state.page='home';
+const main=document.getElementById('main'),nav=document.getElementById('navigation'),sidebar=document.getElementById('sidebar'),backdrop=document.getElementById('mobileBackdrop');
+let practiceFilter='全部',practiceOnlyReview=false,practiceQuery='',searchQuery='';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num=n=>String(n).padStart(2,'0');
+const practiceAll=DATA.chapters.flatMap((c,i)=>c.practice.map(p=>({...p,unit:i})));
+const totalDone=()=>practiceAll.filter(p=>state.practice[p.id]==='good').length;
+const totalReview=()=>practiceAll.filter(p=>state.practice[p.id]==='bad').length;
+const statFor=i=>{const arr=DATA.chapters[i].practice;return arr.filter(p=>state.practice[p.id]==='good').length};
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}};
+const pbar=(got,all)=>`<div class="progress-track"><div class="progress-fill" style="width:${Math.round(got/all*100)}%"></div></div>`;
+const title=(tag,headline,lead='')=>`<div class="page-tag">${tag}</div><h1 class="page-title">${headline}</h1>${lead?`<p class="lead">${lead}</p>`:''}`;
+const pill=(s,kind='')=>`<span class="pill ${kind}">${esc(s)}</span>`;
+const btn=(label,action,cls='')=>`<button type="button" class="btn ${cls}" data-action="${action}">${label}</button>`;
+function setPage(page,chapter){state.page=page;if(chapter!=null)state.chapter=+chapter;save();render();window.scrollTo({top:0,behavior:'instant'});closeMenu()}
+function closeMenu(){sidebar.classList.remove('open');backdrop.classList.remove('show')}
+function navMarkup(){
+ const links=[['home','⌂','備考總覽'],['practice','✎','48 題分級練習'],['initial','◷','初試模擬考'],['final','∴','複試模擬考'],['schedule','▦','8 週衝刺計畫'],['signals','⚡','考點速查卡']];
+ nav.innerHTML=links.map(([id,ico,name])=>`<button class="nav-link ${state.page===id?'active':''}" data-page="${id}"><span class="nav-icon">${ico}</span>${name}</button>`).join('')+
+ `<div class="nav-label">8 大進階單元</div>`+
+ DATA.chapters.map((c,i)=>`<button class="nav-link ${state.page==='chapter'&&state.chapter===i?'active':''}" data-page="chapter" data-chapter="${i}"><span class="nav-icon">${num(i+1)}</span><span>${esc(c.title.split('｜')[1])}<small>${statFor(i)}/6 題已掌握</small></span></button>`).join('');
+}
+function home(){
+return `<div class="hero"><small>LAN YANG CUP · ADVANCED PREPARATION</small><h1>從會算，到<span>真正會解題。</span></h1><p>專為蘭陽盃數學金頭腦 A 組初試、複試設計。把歷屆考點拆成可學的觀念、可練的題目、可驗收的模擬考。</p><div class="hero-actions"><button class="btn btn-primary" data-page="chapter" data-chapter="0">開始第一單元 →</button><button class="btn btn-outline" data-page="initial">挑戰 35 分鐘模擬考</button></div></div>
+ <div class="metrics"><div class="metric"><b>08</b><span>完整進階教學單元</span></div><div class="metric"><b>16</b><span>歷屆典型題詳解</span></div><div class="metric"><b>48</b><span>分級自主練習題</span></div><div class="metric"><b>40</b><span>初複試模擬考題</span></div></div>
+ <div class="card"><div class="section-heading" style="margin:0 0 12px"><div><h2>你的學習儀表板</h2><p>在這個瀏覽器內自動保存</p></div>${pill('已掌握 '+totalDone()+'/48 題','teal')}</div>${pbar(totalDone(),48)}<div class="toolbar" style="margin-bottom:0"><span class="exam-info">需複習 ${totalReview()} 題 · 8 週計畫已完成 ${state.weekDone.length} 週</span><button class="btn btn-sm btn-soft" data-page="practice">繼續刷題 →</button></div></div>
+ <div class="section-heading"><div><h2>8 大單元 · 由易到難</h2><p>每單元：數學訊號 → 觀念教學 → 歷屆詳解 → 6 題挑戰</p></div></div>
+ <div class="chapter-grid">${DATA.chapters.map((c,i)=>`<article class="unit-card"><div class="unit-head"><div class="unit-index">${num(i+1)}</div><div><h3>${esc(c.title.split('｜')[1])}</h3><p>${esc(c.desc)}</p></div></div><div class="unit-meta">${pill('3 個核心觀念')}${pill('2 題歷屆例題')}${pill('6 題練習','teal')}</div>${pbar(statFor(i),6)}<div class="unit-bottom"><span>${statFor(i)}/6 題掌握</span><button class="btn btn-sm" data-page="chapter" data-chapter="${i}">進入單元 →</button></div></article>`).join('')}</div>
+ <div class="section-heading"><div><h2>考場模式</h2><p>選擇適合自己的實戰訓練</p></div></div>
+ <div class="chapter-grid"><div class="card" style="margin:0"><div class="page-tag">35 MINUTES</div><h2>初試｜30 題單選</h2><p>30 題／100 分，計時作答、交卷後立即計分並附每題詳解。</p><button class="btn btn-primary" data-page="initial">開始初試模擬 →</button></div><div class="card" style="margin:0"><div class="page-tag">105 MINUTES</div><h2>複試｜10 題填充・計算・證明</h2><p>8 題填充＋2 題大題，文字作答與逐題對照正規詳解。</p><button class="btn btn-dark" data-page="final">開始複試模擬 →</button></div></div>
+ <div class="note-panel"><h3>關於題目來源與範圍</h3><p>${esc(DATA.sourcesNote)}這是蘭陽盃競賽備考課程，並非學測數 A 或分科數甲正式試卷。部分高階方法屬競賽延伸，原題若有條件歧義會在教學中註明。</p></div>`;
+}
+function chapterView(){
+const i=state.chapter,c=DATA.chapters[i];
+return `${title('CHAPTER '+num(i+1),esc(c.title.split('｜')[1]),esc(c.desc))}
+<div class="toolbar"><span class="exam-info">已掌握 ${statFor(i)}/6 題</span><div class="quick-actions"><button class="btn btn-sm" data-page="practice" data-filter-unit="${i}">練習本單元 →</button>${i<7?`<button class="btn btn-sm" data-page="chapter" data-chapter="${i+1}">下一單元 →</button>`:''}</div></div>
+<div class="card"><h2>🎯 考點轉譯與數學訊號</h2><div class="signal-list">${c.signal.map(s=>`<div class="signal-item">${esc(s)}</div>`).join('')}</div></div>
+<div class="card"><h2>✍️ 進階觀念教學</h2><div class="lesson-list">${c.theories.map((s,j)=>`<div class="lesson-line"><span class="lesson-num">${num(j+1)}</span><p>${esc(s.replace(/^\d+\.\s*/,''))}</p></div>`).join('')}</div></div>
+<div class="section-heading"><div><h2>歷屆典型題 · 正規詳解</h2><p>保留重要推導步驟，適合練習寫出具說服力的解法</p></div></div>
+<div class="examples-grid">${c.examples.map(e=>`<article class="example-card"><div class="page-tag">PAST EXAM · WORKED EXAMPLE</div><h3>${esc(e.title)}</h3><p class="question-text">${esc(e.question)}</p><ol class="steps">${e.steps.map(s=>`<li>${esc(s.replace(/^\d+\s*/,''))}</li>`).join('')}</ol><div class="conclusion">${esc(e.answer)}</div>${e.warning?`<div class="alert">🛡️ ${esc(e.warning)}</div>`:''}</article>`).join('')}</div>
+<div class="section-heading"><div><h2>🔄 頂標變體試煉</h2><p>做完先確認算式，再展開答案與關鍵理由</p></div><button class="btn btn-sm" data-page="practice" data-filter-unit="${i}">全部進入練習區</button></div>
+<div class="practice-grid">${c.practice.map(practiceCard).join('')}</div>
+<div class="toolbar" style="margin-top:25px"><button class="btn" data-page="home">← 返回總覽</button>${i<7?`<button class="btn btn-primary" data-page="chapter" data-chapter="${i+1}">下一單元 →</button>`:`<button class="btn btn-primary" data-page="initial">前往模擬考 →</button>`}</div>`;
+}
+function practiceCard(p){
+const st=state.practice[p.id]||'';
+return `<article class="practice-card ${st==='good'?'marked-good':st==='bad'?'marked-bad':''}" data-practice-card="${p.id}"><div class="practice-top"><div class="practice-id">${esc(p.id)} ${pill(p.difficulty,p.difficulty==='進階'?'gold':'')}</div><span class="status-tag ${st}">${st==='good'?'✓ 已掌握':st==='bad'?'↺ 需複習':'尚未標記'}</span></div><div class="question-text">${esc(p.question)}</div><details><summary style="color:#087a7e;font-size:12px;font-weight:750;cursor:pointer">顯示答案與解題關鍵</summary><div class="practice-answer"><p><strong>答案：</strong>${esc(p.answer)}</p><p><strong>解析：</strong>${esc(p.why)}</p></div></details><div class="practice-actions"><button class="btn btn-sm btn-soft" data-action="practice-good" data-id="${p.id}">${st==='good'?'✓ 已掌握':'標記已掌握'}</button><button class="btn btn-sm ${st==='bad'?'btn-warn':''}" data-action="practice-bad" data-id="${p.id}">${st==='bad'?'↺ 已列待複習':'需要再練'}</button></div></article>`;
+}
+function practiceView(){
+const all=practiceAll.filter(p=>(practiceFilter==='全部'||practiceFilter==='單元'+p.unit||p.difficulty===practiceFilter)&&(!practiceOnlyReview||state.practice[p.id]==='bad')&&(!practiceQuery||(p.question+p.id+p.answer+DATA.chapters[p.unit].title).toLowerCase().includes(practiceQuery.toLowerCase())));
+return `${title('PRACTICE CENTER','48 題分級練習','依難度、單元、掌握狀態練習。作答後再點開答案，標記「已掌握」或「需要再練」。')}
+<div class="card"><div class="section-heading" style="margin:0"><div><h2>我的練習進度</h2><p>已掌握 ${totalDone()} 題 · 需複習 ${totalReview()} 題</p></div>${pill(Math.round(totalDone()/48*100)+'%','teal')}</div>${pbar(totalDone(),48)}</div>
+<div class="toolbar"><div class="filter-controls">${['全部','基礎','中階','進階','延伸'].map(f=>`<button class="chip ${practiceFilter===f?'active':''}" data-action="practice-filter" data-filter="${f}">${f}</button>`).join('')}</div><input class="inline-search" id="practiceSearch" placeholder="搜尋練習題…" value="${esc(practiceQuery)}" aria-label="搜尋練習題"></div>
+<div class="toolbar"><div class="filter-controls">${DATA.chapters.map((c,i)=>`<button class="chip ${practiceFilter==='單元'+i?'active':''}" data-action="practice-filter" data-filter="單元${i}">${num(i+1)} ${esc(c.title.split('｜')[1].slice(0,6))}</button>`).join('')}</div><label style="font-size:13px;color:#5d7a88"><input type="checkbox" id="onlyReview" ${practiceOnlyReview?'checked':''}> 只看需複習</label></div>
+<p class="exam-info">顯示 ${all.length} 題</p><div class="practice-grid">${all.map(practiceCard).join('')||'<div class="empty">沒有符合條件的題目。</div>'}</div>`;
+}
+function timeStr(sec){const s=Math.max(0,sec);return num(Math.floor(s/60))+':'+num(s%60)}
+function timerNow(kind){const t=state.timers[kind];if(t.active)t.remaining=Math.max(0,Math.ceil((t.endAt-Date.now())/1000));return t.remaining}
+function timerUI(kind){let seconds=timerNow(kind);return `<div class="timer ${seconds<=300?'urgent':''}" id="timer-${kind}"><span>◷</span><strong>${timeStr(seconds)}</strong></div><button class="btn btn-sm ${state.timers[kind].active?'btn-warn':'btn-dark'}" data-action="timer-${state.timers[kind].active?'pause':'start'}" data-kind="${kind}">${state.timers[kind].active?'暫停計時':'開始／繼續計時'}</button><button class="btn btn-sm" data-action="timer-reset" data-kind="${kind}">重設時間</button>`}
+function mockView(){
+const selected=Object.keys(state.initialAnswers).filter(k=>state.initialAnswers[k]).length,submitted=state.initialSubmitted;
+let score=DATA.mock.reduce((n,q,i)=>n+(state.initialAnswers[q.id]===q.answer?(i<20?3:4):0),0);
+return `${title('MOCK EXAM A','初試全真題數模擬','30 題單選・35 分鐘・總分 100 分。此卷為依歷屆題型另編的原創練習題，不是官方原卷。')}
+<div class="exam-header"><div class="exam-info">${pill('1–20 題每題 3 分')}${pill('21–30 題每題 4 分')}<p>目前作答：<strong id="initialCount">${selected}</strong> / 30 題</p></div><div class="quick-actions">${timerUI('initial')}</div></div>
+${submitted?`<div class="exam-score"><span>本次初試得分</span><b>${score} <small style="font-size:22px">/ 100</small></b><span>交卷後顯示正確答案與關鍵解析</span></div>`:''}
+${DATA.mock.map((q,i)=>{const ans=state.initialAnswers[q.id]||'',ok=ans===q.answer;return `<article class="question-item ${submitted?(ok?'review-correct':'review-wrong'):''}" id="mock-${q.id}"><div class="question-index"><span>第 ${+q.id} 題 · ${i<20?3:4} 分</span>${submitted?`<span style="color:${ok?'#147b68':'#bd534e'}">${ok?'✓ 答對':'✕ 答錯／未作答'}</span>`:pill(i<20?'基礎／中階':'進階','')}</div><h3>${esc(q.question)}</h3><div class="opt-grid">${q.options.map(o=>`<button type="button" class="opt ${ans===o.id?'selected':''} ${submitted?(o.id===q.answer?'correct':ans===o.id?'wrong':''):''}" data-action="choose-initial" data-id="${q.id}" data-choice="${o.id}" ${submitted?'disabled':''}><span class="letter">${o.id}</span>${esc(o.text)}</button>`).join('')}</div>${submitted?`<div class="explanation"><strong>正確答案：${q.answer}</strong>　${esc(q.why)}</div>`:''}</article>`}).join('')}
+<div class="exam-finish"><div><strong>${submitted?'已完成批改':`已作答 ${selected}/30 題`}</strong><div class="exam-info">${submitted?'可以重考，作答紀錄將重新計算':'完成後按下交卷，才會顯示詳解'}</div></div><div class="quick-actions">${submitted?'<button class="btn btn-primary" data-action="retry-initial">重新挑戰</button>':'<button class="btn btn-primary" data-action="submit-initial">交卷並計分 →</button>'}</div></div>`;
+}
+function finalView(){
+const submitted=state.finalSubmitted,marked=Object.keys(state.finalMarks).length,score=Object.values(state.finalMarks).filter(x=>x==='good').length*10;
+return `${title('MOCK EXAM B','複試全真題數模擬','8 題填充＋1 題計算＋1 題證明・105 分鐘。先列式再對照詳解，完成後逐題自評。')}
+<div class="exam-header"><div class="exam-info">${pill('10 題 × 10 分')}${pill('後 2 題需完整推理')}<p>已寫作答：${Object.values(state.finalAnswers).filter(x=>x.trim()).length}/10 題</p></div><div class="quick-actions">${timerUI('final')}</div></div>
+${submitted?`<div class="exam-score"><span>自行核對後的累積分數</span><b id="finalScore">${score} <small style="font-size:22px">/ 100</small></b><span>已有 ${marked}/10 題完成自評（此處以每題 0 或 10 分記錄）</span></div>`:''}
+${DATA.final.map((q,i)=>`<article class="question-item" id="final-${q.id}"><div class="question-index"><span>第 ${i+1} 題・${q.type}</span>${pill('10 分',i>7?'gold':'')}</div><h3>${esc(q.question)}</h3><label class="exam-info" for="answer-${q.id}">寫下你的答案或推導</label><textarea class="answer-input" id="answer-${q.id}" data-final-input="${q.id}" ${submitted?'readonly':''} placeholder="${i<8?'請填入答案與簡要算式…':'請寫出計算過程、證明理由與結論…'}">${esc(state.finalAnswers[q.id]||'')}</textarea>${submitted?`<div class="explanation"><strong>參考解答：${esc(q.answer)}</strong><ol style="padding-left:21px">${q.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol></div><div class="self-grade"><span class="exam-info">核對後自評：</span><button class="btn btn-sm ${state.finalMarks[q.id]==='good'?'btn-soft':''}" data-action="mark-final" data-id="${q.id}" data-mark="good">✓ 正確（10 分）</button><button class="btn btn-sm ${state.finalMarks[q.id]==='bad'?'btn-warn':''}" data-action="mark-final" data-id="${q.id}" data-mark="bad">✕ 待加強（0 分）</button></div>`:''}</article>`).join('')}
+<div class="exam-finish"><div><strong>${submitted?'對照解析並完成自評':'複試作答區'}</strong><div class="exam-info">${submitted?'大題請確認書寫有完整依據':'建議限時作答；交卷才顯示參考解答'}</div></div>${submitted?'<button class="btn btn-primary" data-action="retry-final">重新挑戰</button>':'<button class="btn btn-primary" data-action="submit-final">交卷 · 查看詳解 →</button>'}</div>`;
+}
+function scheduleView(){
+return `${title('8-WEEK STUDY PLAN','8 週進階衝刺計畫','每日約 60–90 分鐘。依照單元先後練習，勾選完成的週次；若時間不足，可合併相鄰週。')}
+<div class="route"><span>初試診斷</span><i>›</i><span>核心觀念</span><i>›</i><span>歷屆題詳解</span><i>›</i><span>變式練習</span><i>›</i><span>模擬考</span><i>›</i><span>錯題重做</span></div>
+<div class="card"><h2>目前完成進度</h2>${pbar(state.weekDone.length,8)}<p class="exam-info">已完成 ${state.weekDone.length}/8 週</p></div>
+<div class="timeline-list">${DATA.schedule.map((w,i)=>`<article class="week-card ${state.weekDone.includes(i)?'done':''}"><div class="week-label">${esc(w.week)}</div><div class="week-body"><b>${esc(w.focus)}</b><p>${esc(w.task)}</p></div><label class="week-check"><input type="checkbox" data-week="${i}" ${state.weekDone.includes(i)?'checked':''}> 已完成</label></article>`).join('')}</div>
+<div class="section-heading"><div><h2>考場配速建議</h2><p>原卷時間限制與本講義訓練策略分開標示</p></div></div><div class="chapter-grid">
+<div class="card" style="margin:0"><h2>初試｜35 分鐘</h2><p><b>0–12 分：</b>先完成熟悉的短題，平均 40–60 秒。</p><p><b>12–28 分：</b>處理中階題，卡住超過 90 秒先跳題。</p><p><b>28–35 分：</b>回頭處理難題與檢查答案。</p></div>
+<div class="card" style="margin:0"><h2>複試｜105 分鐘</h2><p><b>填充題：</b>先做熟悉的數論與代數題，每題約 6–9 分鐘。</p><p><b>計算／證明：</b>預留約 30–40 分鐘。</p><p><b>最後 5 分鐘：</b>確認條件、計算符號及完整結論。</p></div></div>
+<div class="note-panel"><h3>閱卷防禦：複試書寫四件事</h3><p>① 設未知數與範圍　② 寫出關係式及其依據　③ 展示關鍵推導　④ 檢查可行性並明確寫出結論。這是教材建議的作答方法，並非宣稱競賽主辦單位固定採用某套分步給分方式。</p></div>`;
+}
+function signalsView(){
+return `${title('QUICK REFERENCE','數學訊號 × 最速破題索引','考前快速辨認：看見條件、選對工具、檢查適用前提。')}
+<div class="card"><h2>12 組高頻考點訊號</h2><div class="table-scroll"><table><thead><tr><th>題目出現的訊號</th><th>優先使用的工具</th><th>必要檢查</th></tr></thead><tbody>${DATA.signals.map(s=>`<tr>${s.map(t=>`<td>${esc(t)}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>
+<div class="card"><h2>🛡️ 審題警報：原題可能有條件歧義</h2><p><strong>第 17 屆複試第 5 題：</strong>僅知三角形兩邊與面積，若沒有額外角度限制，第三邊可能存在兩種長度；必須檢查銳角、鈍角兩種情況。</p><p><strong>第 19 屆複試第 5 題：</strong>若題意只要求函數值為整數，其他 x 值也可能成立；若要唯一求出另一個解，需確認額外條件是否明確。</p><div class="alert">不能把文字歧義當成必須硬求唯一答案的題目。解析依可證明的數學條件作答。</div></div>
+<div class="card"><h2>考試前最後 10 分鐘</h2><ol><li>看到最值，先確認定義域、等號能否成立。</li><li>有三角形兩邊與面積，檢查第三邊是否雙解。</li><li>大下標遞迴求餘數，先模數化再找週期。</li><li>幾何證明先說明「為何垂直／相似／共圓」。</li><li>答案分數、負號、單位與合法範圍全部檢查。</li></ol></div>`;
+}
+function searchView(){
+const term=searchQuery.toLowerCase().trim();
+const chap=DATA.chapters.map((c,i)=>({c,i})).filter(o=>(o.c.title+o.c.desc+o.c.signal.join(' ')+o.c.theories.join(' ')+o.c.examples.map(e=>e.question).join(' ')).toLowerCase().includes(term));
+const qs=practiceAll.filter(p=>(p.question+p.answer+p.why+p.id).toLowerCase().includes(term));
+const ms=DATA.mock.filter(q=>(q.question+q.why).toLowerCase().includes(term));
+return `${title('SEARCH','搜尋題目與觀念',`搜尋「${esc(searchQuery)}」的結果；可以直接進入對應單元。`)}<div class="card"><h2>相關教學單元（${chap.length}）</h2>${chap.map(({c,i})=>`<div style="padding:12px 0;border-bottom:1px solid var(--line)"><strong>${esc(c.title)}</strong><p class="exam-info">${esc(c.desc)}</p><button class="btn btn-sm" data-page="chapter" data-chapter="${i}">閱讀單元 →</button></div>`).join('')||'<p class="exam-info">無相符單元</p>'}</div><div class="card"><h2>相關練習（${qs.length}）</h2>${qs.slice(0,20).map(p=>`<div style="padding:12px 0;border-bottom:1px solid var(--line)"><strong>${p.id}</strong>　${esc(p.question)}<br><button class="btn btn-sm" data-page="chapter" data-chapter="${p.unit}">前往相關單元 →</button></div>`).join('')||'<p class="exam-info">無相符練習</p>'}</div><div class="card"><h2>初試模擬相關題（${ms.length}）</h2>${ms.slice(0,12).map(q=>`<p><strong>第 ${+q.id} 題</strong>　${esc(q.question)}</p>`).join('')||'<p class="exam-info">無相符題目</p>'}${ms.length?'<button class="btn" data-page="initial">開啟初試模擬 →</button>':''}</div>`;
+}
+function render(){
+navMarkup();
+const names={home:'備考總覽',chapter:DATA.chapters[state.chapter].title,practice:'分級練習',initial:'初試模擬考',final:'複試模擬考',schedule:'8 週計畫',signals:'考點速查卡',search:'搜尋結果'};
+document.getElementById('pageCrumb').textContent=names[state.page]||'備考總覽';
+main.innerHTML=({home,chapter:chapterView,practice:practiceView,initial:mockView,final:finalView,schedule:scheduleView,signals:signalsView,search:searchView}[state.page]||home)()+`<footer class="site-footer">${esc(DATA.sourcesNote)}<br>© 進階數學備考教材 · 可離線開啟 · 學習狀態僅儲存於本機瀏覽器</footer>`;
+}
+function finishInitial(auto=false){if(!auto&&!confirm('確定交卷嗎？交卷後將顯示每一題的答案與解題說明。'))return;state.initialSubmitted=true;state.timers.initial.active=false;save();render();window.scrollTo({top:0,behavior:'instant'})}
+function finishFinal(auto=false){if(!auto&&!confirm('確定交卷嗎？交卷後可以查看完整解析並自我批改。'))return;state.finalSubmitted=true;state.timers.final.active=false;save();render();window.scrollTo({top:0,behavior:'instant'})}
+function tick(){
+let update=false;
+for(const kind of ['initial','final']){
+ let t=state.timers[kind];if(!t.active)continue;
+ const prev=t.remaining,now=timerNow(kind);
+ const el=document.getElementById('timer-'+kind);
+ if(el){el.querySelector('strong').textContent=timeStr(now);el.classList.toggle('urgent',now<=300)}
+ if(now!==prev)update=true;
+ if(now<=0){t.active=false;if(kind==='initial'&&!state.initialSubmitted)finishInitial(true);if(kind==='final'&&!state.finalSubmitted)finishFinal(true)}
+}
+if(update)save()
+}
+setInterval(tick,1000);
+document.addEventListener('click',e=>{
+ const b=e.target.closest('button');if(!b)return;
+ const page=b.dataset.page,act=b.dataset.action;
+ if(page){
+   if(b.dataset.filterUnit!=null)practiceFilter='單元'+b.dataset.filterUnit;
+   setPage(page,b.dataset.chapter);return;
+ }
+ if(!act)return;
+ switch(act){
+ case 'menu': sidebar.classList.toggle('open');backdrop.classList.toggle('show');break;
+ case 'print':window.print();break;
+ case 'practice-filter':practiceFilter=b.dataset.filter;render();break;
+ case 'practice-good':case 'practice-bad':{
+   const id=b.dataset.id,requested=act==='practice-good'?'good':'bad';state.practice[id]=state.practice[id]===requested?'':requested;save();
+   const detailsOpen=[...document.querySelectorAll('details[open]')].map(x=>x.closest('.practice-card')?.dataset.practiceCard).filter(Boolean);
+   render();detailsOpen.forEach(id=>{const a=document.querySelector(`[data-practice-card="${id}"] details`);if(a)a.open=true});break;
+ }
+ case 'choose-initial':{
+   if(state.initialSubmitted)return;
+   const id=b.dataset.id;state.initialAnswers[id]=b.dataset.choice;save();
+   b.closest('.opt-grid').querySelectorAll('.opt').forEach(x=>x.classList.toggle('selected',x===b));
+   const count=document.getElementById('initialCount');if(count)count.textContent=Object.keys(state.initialAnswers).length;
+   const fin=document.querySelector('.exam-finish strong');if(fin)fin.textContent=`已作答 ${Object.keys(state.initialAnswers).length}/30 題`;
+   break;
+ }
+ case 'submit-initial':finishInitial();break;
+ case 'submit-final':finishFinal();break;
+ case 'retry-initial':{
+   if(!confirm('重新考試會清除目前初試答案與成績，確定繼續嗎？'))return;
+   state.initialAnswers={};state.initialSubmitted=false;state.timers.initial={remaining:2100,active:false,endAt:0};save();render();window.scrollTo({top:0,behavior:'instant'});break;
+ }
+ case 'retry-final':{
+   if(!confirm('重新考試會清除目前複試答案與自評紀錄，確定繼續嗎？'))return;
+   state.finalAnswers={};state.finalSubmitted=false;state.finalMarks={};state.timers.final={remaining:6300,active:false,endAt:0};save();render();window.scrollTo({top:0,behavior:'instant'});break;
+ }
+ case 'mark-final':{
+   const id=b.dataset.id,m=b.dataset.mark;
+   state.finalMarks[id]=state.finalMarks[id]===m?'':m;save();
+   const openY=window.scrollY;
+   render();window.scrollTo(0,openY);break;
+ }
+ case 'timer-start':{
+   let t=state.timers[b.dataset.kind];if(t.remaining===0)t.remaining=b.dataset.kind==='initial'?2100:6300;
+   t.active=true;t.endAt=Date.now()+t.remaining*1000;save();render();break;
+ }
+ case 'timer-pause':{
+   let t=state.timers[b.dataset.kind];timerNow(b.dataset.kind);t.active=false;save();render();break;
+ }
+ case 'timer-reset':{
+   if(!confirm('要將計時器恢復到完整考試時間嗎？已作答的題目不會清除。'))return;
+   state.timers[b.dataset.kind]={remaining:b.dataset.kind==='initial'?2100:6300,active:false,endAt:0};save();render();break;
+ }
+ }
+});
+document.addEventListener('input',e=>{
+ if(e.target.matches('[data-final-input]')){state.finalAnswers[e.target.dataset.finalInput]=e.target.value;save()}
+ if(e.target.id==='practiceSearch'){practiceQuery=e.target.value;const pos=e.target.selectionStart;render();const input=document.getElementById('practiceSearch');if(input){input.focus();input.setSelectionRange(pos,pos)}}
+ if(e.target.id==='globalSearch'){searchQuery=e.target.value;if(searchQuery.trim())setPage('search');else if(state.page==='search')setPage('home');}
+});
+document.addEventListener('change',e=>{
+ if(e.target.id==='onlyReview'){practiceOnlyReview=e.target.checked;render()}
+ if(e.target.hasAttribute('data-week')){
+   let i=+e.target.dataset.week;if(e.target.checked){if(!state.weekDone.includes(i))state.weekDone.push(i)}else state.weekDone=state.weekDone.filter(x=>x!==i);
+   save();render();
+ }
+});
+document.getElementById('globalSearch').addEventListener('keydown',e=>{
+ if(e.key==='Escape'){e.currentTarget.value='';searchQuery='';setPage('home')}
+});
+backdrop.addEventListener('click',closeMenu);
+render();
+})();
+</script>
+</body>
+</html>
